@@ -51,3 +51,26 @@ export class FileUploadComponent {
     link.click();
   }
 }
+
+
+
+// fetch-files.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-fetch-files',
+  templateUrl: './fetch-files.component.html',
+  styleUrls: ['./fetch-files.component.css']
+})
+export class FetchFilesComponent {
+  uploadedFiles: any[] = JSON.parse(localStorage.getItem('uploadedFiles') || '[]');
+
+  reloadFiles(fileInfo: any) {
+    console.log('File Uploaded Event Triggered:', fileInfo);
+
+    // Update the list of uploaded files in localStorage
+    this.uploadedFiles.push(fileInfo);
+    localStorage.setItem('uploadedFiles', JSON.stringify(this.uploadedFiles));
+  }
+}
+
