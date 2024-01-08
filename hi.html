@@ -1,0 +1,40 @@
+<!-- fetch-files.component.html -->
+<table class="table align-middle mb-0 bg-white">
+  <thead class="bg-light">
+    <tr>
+      <th>Name</th>
+      <th>Date Uploaded</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let fileInfo of uploadedFiles">
+      <td>
+        <div class="d-flex align-items-center">
+          <img
+              src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+              alt=""
+              style="width: 45px; height: 45px"
+              class="rounded-circle"
+          />
+          <div class="ms-3">
+            <p class="fw-bold mb-1">{{ fileInfo.name }}</p>
+          </div>
+        </div>
+      </td>
+      <td>{{ fileInfo.dateUploaded }}</td>
+      <td>
+        <span class="badge badge-success rounded-pill d-inline">{{ fileInfo.status }}</span>
+      </td>
+      <td>
+        <button type="button" class="btn btn-link btn-sm btn-rounded">
+          Run
+        </button>
+        <button type="button" class="btn btn-link btn-sm btn-rounded">
+          Download
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
